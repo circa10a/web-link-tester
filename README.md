@@ -14,3 +14,5 @@ Access via http://localhost
 ```bash
 curl -X POST -d "https://www.github.com" http://localhost/api
 ```
+### Production Ready
+Utilizes uwsgi/nginx for multiple workers/threading.
