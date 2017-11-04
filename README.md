@@ -12,7 +12,11 @@ Access via http://localhost
 ### API Usage
 
 ```bash
-curl -X POST -d "https://www.github.com" http://localhost/api
+curl -X POST --data "https://www.github.com" http://localhost/api
 ```
-### Production Ready
-Utilizes uwsgi/nginx for multiple workers/threading.
+### Stack
+- Utilizes uwsgi/nginx for multiple workers/threading.
+- Python 3
+- BeautifulSoup4
+- Jquery
+
