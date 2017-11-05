@@ -4,12 +4,6 @@ import json
 import lib.link_test as validate
 
 app = Flask(__name__)
-def removew(d):
-  for k, v in d.iteritems():
-    if isinstance(v, dict):
-      removew(v)
-    else:
-      d[k]=v.strip()
 
 @app.route('/')
 def index():
@@ -19,7 +13,6 @@ def index():
 def index_post():
     url = request.form['search']
     data = validate.test_links(url)
-    data = removew(data)
     keys = ['url','code']
     return render_template("index.html", data=data, keys=keys)
 
