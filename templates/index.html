@@ -19,11 +19,28 @@
   </div>
  <div class="overlay"></div>
  <div class="loader"></div>
-  {% if data %}
-  {% for res in data %}
-  <ul>{{ res }}</ul>
-  {% endfor %}
-  {% endif %}
+ </br></br></br></br></br>
+ {%- if data -%}
+ <table class="container">
+	<thead>
+		<tr>
+      {% for key in keys %}
+			<th><h1>{{ key }}</h1></th>
+      {% endfor %}
+		</tr>
+	</thead>
+	<tbody>
+    {% for dict_item in data %}
+		<tr>
+      {%- for url in dict_item.values() -%}
+			<td>{{ url }}</td>
+      <td>{{ code }}</td>
+      {%- endfor -%}
+		</tr>
+      {% endfor %}
+	</tbody>
+</table>
+  {%- endif -%}
 </body>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src="../static/js/submit.js"></script>
