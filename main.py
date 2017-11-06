@@ -13,7 +13,7 @@ def index():
 def index_post():
     url = request.form['search']
     data = validate.test_links(url)
-    keys = ['url','code']
+    keys = ['URL','Code']
     return render_template("index.html", data=data, keys=keys)
 
 @app.route('/api',methods = ['GET','POST'])

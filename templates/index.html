@@ -33,8 +33,9 @@
     {% for dict_item in data %}
 		<tr>
       {%- for url in dict_item.values() -%}
-			<td>{{ url }}</td>
-      <td>{{ code }}</td>
+      <td>
+      <a href="{{url}}">{{url}}</a>
+      </td>
       {%- endfor -%}
 		</tr>
       {% endfor %}
