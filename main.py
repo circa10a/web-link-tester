@@ -1,5 +1,6 @@
 #!flask/bin/python
 from flask import Flask,request,render_template,jsonify
+import json
 import lib.link_test as validate
 
 app = Flask(__name__)
@@ -11,8 +12,9 @@ def index():
 @app.route('/', methods=['POST'])
 def index_post():
     url = request.form['search']
-    data=validate.test_links(url)
-    return render_template("index.html", data=data)
+    data = validate.test_links(url)
+    keys = ['URL','Code']
+    return render_template("index.html", data=data, keys=keys)
 
 @app.route('/api',methods = ['GET','POST'])
 def api():

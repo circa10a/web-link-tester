@@ -7,8 +7,8 @@ def check_protocol(site): #Validate argument starts with http or https
 
 def print_response(response, link):
     data = {}
-    data['url'] = link
-    data['code'] = response
+    data["url"] = link
+    data["code"] = response
     return data
 
 def test_links(site):
@@ -21,7 +21,8 @@ def test_links(site):
     link_list=[]
     for link in soup.find_all('a'):
         link = str(link.get('href'))
+        link = link.replace("'",'"')
         if check_protocol(link):
             response = requests.get(link)
-            link_list.append(print_response(response.status_code, link))
+            link_list.append(print_response(response.status_code,link))
     return link_list
