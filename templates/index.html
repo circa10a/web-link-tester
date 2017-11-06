@@ -20,7 +20,8 @@
  <div class="overlay"></div>
  <div class="loader"></div>
  </br></br></br></br></br>
- {%- if data -%}
+
+ {% if data %}
  <table class="container">
 	<thead>
 		<tr>
@@ -32,16 +33,23 @@
 	<tbody>
     {% for dict_item in data %}
 		<tr>
-      {%- for url in dict_item.values() -%}
+      {% for url in dict_item.values() %}
       <td>
       <a href="{{url}}">{{url}}</a>
       </td>
-      {%- endfor -%}
-		</tr>
       {% endfor %}
+		</tr>
+    {% endfor %}
 	</tbody>
 </table>
-  {%- endif -%}
+{% endif %}
+
+{% if invalid_data %}
+<script>
+  alert('Invalid URL!');
+</script>
+{% endif %}
+
 </body>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src="../static/js/submit.js"></script>

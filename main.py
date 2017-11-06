@@ -12,8 +12,12 @@ def index():
 def index_post():
         url = request.form['search']
         data = validate.test_links(url)
-        keys = ['URL','Code']
-        return render_template('index.html', data=data, keys=keys)
+        if isinstance(data, list):
+            keys = ['URL','Code']
+            return render_template('index.html', data=data, keys=keys)
+        else:
+            invalid_data = data
+            return render_template('index.html', invalid_data=data)
 
 @app.route('/api',methods = ['GET','POST'])
 def api():
