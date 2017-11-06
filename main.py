@@ -10,10 +10,13 @@ def index():
 
 @app.route('/', methods=['POST'])
 def index_post():
-    url = request.form['search']
-    data = validate.test_links(url)
-    keys = ['URL','Code']
-    return render_template("index.html", data=data, keys=keys)
+    try:
+        url = request.form['search']
+        data = validate.test_links(url)
+        keys = ['URL','Code']
+        return render_template("index.html", data=data, keys=keys)
+    except requests.exceptions.MissingSchema:
+        return "Error. Please Use Full URL (e.g \"https://google.com\")"
 
 @app.route('/api',methods = ['GET','POST'])
 def api():

@@ -26,6 +26,7 @@ def test_links(site):
             response = requests.get(link)
             link_list.append(print_response(response.status_code,link))
         else:
-        break
-        return "Error. Please Use Full URL (e.g \"https://google.com\")"
+            break
+            return "Error. Please Use Full URL (e.g \"https://google.com\")"
+            sys.exit(1)
     return link_list
