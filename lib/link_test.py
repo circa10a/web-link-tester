@@ -25,6 +25,7 @@ def test_links(site):
         if check_protocol(link):
             response = requests.get(link)
             link_list.append(print_response(response.status_code,link))
-        else
+        else:
+        break
         return "Error. Please Use Full URL (e.g \"https://google.com\")"
     return link_list
