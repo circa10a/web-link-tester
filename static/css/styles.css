@@ -1,227 +1,227 @@
 * {
-box-sizing: border-box;
+    box-sizing: border-box;
 }
 h1 {
-color: #00FFDD;
-text-align: center;
-font-weight: lighter;
-font-size: 3em;
-font-family: sans-serif;
+    color: #00FFDD;
+    text-align: center;
+    font-weight: lighter;
+    font-size: 3em;
+    font-family: sans-serif;
 }
 body {
-background: #2A2E37;
+    background: #2A2E37;
 }
 ul {
-color: #00FFDD;
-text-align: center;
-font-weight: lighter;
-font-family: sans-serif;
+    color: #00FFDD;
+    text-align: center;
+    font-weight: lighter;
+    font-family: sans-serif;
 }
-a:link{
-  color: #000;
-  font-weight: lighter;
-  font-family: sans-serif;
+a:link {
+    color: #000;
+    font-weight: lighter;
+    font-family: sans-serif;
 }
 .loader,
 .loader:before,
 .loader:after {
-  background: #ffffff;
-  -webkit-animation: load1 1s infinite ease-in-out;
-  animation: load1 1s infinite ease-in-out;
-  width: 1em;
-  height: 4em;
-  z-index: 105;
+    background: #ffffff;
+    -webkit-animation: load1 1s infinite ease-in-out;
+    animation: load1 1s infinite ease-in-out;
+    width: 1em;
+    height: 4em;
+    z-index: 105;
 }
 .loader {
-  display: none;
-  color: #ffffff;
-  text-indent: -9999em;
-  margin: 88px auto;
-  position: relative;
-  font-size: 11px;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;s
+    display: none;
+    color: #ffffff;
+    text-indent: -9999em;
+    margin: 88px auto;
+    position: relative;
+    font-size: 11px;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+    s
 }
 .loader:before,
 .loader:after {
-  position: absolute;
-  top: 0;
-  content: '';
+    position: absolute;
+    top: 0;
+    content: '';
 }
 .loader:before {
-  left: -1.5em;
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
+    left: -1.5em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
 }
 .loader:after {
-  left: 1.5em;
+    left: 1.5em;
 }
 @-webkit-keyframes load1 {
-  0%,
-  80%,
-  100% {
-    box-shadow: 0 0;
-    height: 4em;
-  }
-  40% {
-    box-shadow: 0 -2em;
-    height: 5em;
-  }
+    0%, 80%, 100% {
+        box-shadow: 0 0;
+        height: 4em;
+    }
+    40% {
+        box-shadow: 0 -2em;
+        height: 5em;
+    }
 }
 @keyframes load1 {
-  0%,
-  80%,
-  100% {
-    box-shadow: 0 0;
-    height: 4em;
-  }
-  40% {
-    box-shadow: 0 -2em;
-    height: 5em;
-  }
+    0%, 80%, 100% {
+        box-shadow: 0 0;
+        height: 4em;
+    }
+    40% {
+        box-shadow: 0 -2em;
+        height: 5em;
+    }
 }
 .search {
-width: 100px;
-height: 100px;
-margin: 40px auto 0;
-background-color: #242628;
-position: relative;
-overflow: hidden;
-transition: all 0.5s ease;
+    width: 100px;
+    height: 100px;
+    margin: 40px auto 0;
+    background-color: #242628;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
 }
 .search:before {
-content: '';
-display: block;
-width: 3px;
-height: 100%;
-position: relative;
-background-color: #00FEDE;
-transition: all 0.5s ease;
+    content: '';
+    display: block;
+    width: 3px;
+    height: 100%;
+    position: relative;
+    background-color: #00FEDE;
+    transition: all 0.5s ease;
 }
 .search.open {
-width: 420px;
+    width: 420px;
 }
 .search.open:before {
-height: 60px;
-margin: 20px 0 20px 30px;
-position: absolute;
+    height: 60px;
+    margin: 20px 0 20px 30px;
+    position: absolute;
 }
 .search-box {
-width: 100%;
-height: 100%;
-box-shadow: none;
-border: none;
-background: transparent;
-color: #fff;
-padding: 20px 100px 20px 45px;
-font-size: 40px;
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    color: #fff;
+    padding: 20px 100px 20px 45px;
+    font-size: 40px;
 }
 .search-box:focus {
-outline: none;
+    outline: none;
 }
 .search-button {
-width: 100px;
-height: 100px;
-display: block;
-position: absolute;
-right: 0;
-top: 0;
-padding: 20px;
-cursor: pointer;
+    width: 100px;
+    height: 100px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    cursor: pointer;
 }
 .search-icon {
-width: 40px;
-height: 40px;
-border-radius: 40px;
-border: 3px solid #00FEDE;
-display: block;
-position: relative;
-margin-left: 5px;
-transition: all 0.5s ease;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    border: 3px solid #00FEDE;
+    display: block;
+    position: relative;
+    margin-left: 5px;
+    transition: all 0.5s ease;
 }
 .search-icon:before {
-content: '';
-width: 3px;
-height: 15px;
-position: absolute;
-right: -2px;
-top: 30px;
-display: block;
-background-color: #00FEDE;
-transform: rotate(-45deg);
-transition: all 0.5s ease;
+    content: '';
+    width: 3px;
+    height: 15px;
+    position: absolute;
+    right: -2px;
+    top: 30px;
+    display: block;
+    background-color: #00FEDE;
+    transform: rotate(-45deg);
+    transition: all 0.5s ease;
 }
 .search-icon:after {
-content: '';
-width: 3px;
-height: 15px;
-position: absolute;
-right: -12px;
-top: 40px;
-display: block;
-background-color: #00FEDE;
-transform: rotate(-45deg);
-transition: all 0.5s ease;
+    content: '';
+    width: 3px;
+    height: 15px;
+    position: absolute;
+    right: -12px;
+    top: 40px;
+    display: block;
+    background-color: #00FEDE;
+    transform: rotate(-45deg);
+    transition: all 0.5s ease;
 }
 .open .search-icon {
-margin: 0;
-width: 60px;
-height: 60px;
-border-radius: 60px;
+    margin: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
 }
 .open .search-icon:before {
-transform: rotate(52deg);
-right: 22px;
-top: 23px;
-height: 18px;
+    transform: rotate(52deg);
+    right: 22px;
+    top: 23px;
+    height: 18px;
 }
 .open .search-icon:after {
-transform: rotate(-230deg);
-right: 22px;
-top: 13px;
-height: 18px;
+    transform: rotate(-230deg);
+    right: 22px;
+    top: 13px;
+    height: 18px;
 }
 .overlay {
-background-color: #000;
-bottom: 0;
-display: none;
-left: 0;
-opacity: 0.5;
-filter: alpha(opacity = 50); /* IE7 & 8 */
-position: fixed;
-right: 0;
-top: 0;
-z-index: 99;
+    background-color: #000;
+    bottom: 0;
+    display: none;
+    left: 0;
+    opacity: 0.5;
+    filter: alpha(opacity 50);
+    /* IE7 & 8 */
+
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 99;
 }
 .container th h1 {
-font-weight: lighter;
-font-size: 1em;
-text-align: left;
-color: #00FFDC;
-font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 1em;
+    text-align: left;
+    color: #00FFDC;
+    font-family: sans-serif;
 }
 .container td {
-	  font-weight: normal;
-	  font-size: 1em;
-  -webkit-box-shadow: 0 2px 2px -2px #0E1119;
-	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
-	        box-shadow: 0 2px 2px -2px #0E1119;
+    font-weight: normal;
+    font-size: 1em;
+    -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+    -moz-box-shadow: 0 2px 2px -2px #0E1119;
+    box-shadow: 0 2px 2px -2px #0E1119;
 }
 .container {
-  text-align: left;
-  overflow: hidden;
-width: 80%;
-	  margin: 0 auto;
-  display: table;
-  padding: 0 0 8em 0;
+    text-align: left;
+    overflow: hidden;
+    width: 80%;
+    margin: 0 auto;
+    display: table;
+    padding: 0 0 8em 0;
 }
-.container td, .container th {
-  padding-bottom: 2%;
-  padding-top: 2%;
-  padding-left:2%;
+.container td,
+.container th {
+    padding-bottom: 2%;
+    padding-top: 2%;
+    padding-left: 2%;
 }
 .container tr:nth-child(odd) {
     background-color: #dddddd;
@@ -242,11 +242,13 @@ width: 80%;
     font-weight: lighter;
 }
 .container td:first-child {
-  color: #dddddd;
-  font-family: sans-serif;
-  font-weight: lighter;
+    color: #dddddd;
+    font-family: sans-serif;
+    font-weight: lighter;
 }
 @media (max-width: 800px) {
-.container td:nth-child(4),
-.container th:nth-child(4) { display: none; }
+    .container td:nth-child(4),
+    .container th:nth-child(4) {
+        display: none;
+    }
 }
