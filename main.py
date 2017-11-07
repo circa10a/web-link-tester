@@ -4,11 +4,12 @@ import lib.link_test as validate
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET','POST'])
+@app.route('/')
 def index():
-    if request.method == 'GET':
-        return render_template('index.html')
-    elif request.method == 'POST':
+    return render_template('index.html')
+
+@app.route('/', methods=['POST'])
+def index_post():
         url = request.form['search']
         data = validate.test_links(url)
         if isinstance(data, list):
@@ -16,8 +17,6 @@ def index():
             return render_template('index.html', data=data, keys=keys)
         else:
             return render_template('index.html', invalid_data=data)
-    else:
-        return ('Request Method Not Accepted')
 
 @app.route('/api',methods = ['GET','POST'])
 def api():
