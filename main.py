@@ -22,11 +22,11 @@ def index_post():
 def api():
     if request.method !='POST':
         return 'Only POST allowed.'
-    data = request.get_data()
-    return jsonify(validate.test_links(data))
+    data = validate.test_links(request.get_data())
+    if isinstance(data, list):
+        return jsonify({'links': data})
+    else:
+        return data
 
 if __name__ == '__main__':
-    try:
-        app.run(host='0.0.0.0',port=5000)
-    except KeyboardInterrupt:
-        print('Aborted')
+    app.run(host='0.0.0.0',port=5000)

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from bs4 import BeautifulSoup
+from flask import jsonify
 import requests, sys
 
 def check_protocol(site): #Validate argument starts with http or https
@@ -25,8 +26,8 @@ def test_links(site):
                 json_data.append(key_pair)
         return json_data
     except requests.ConnectionError:
-        return ('Unable to Connect')
+        return jsonify({'error': 'Unable to connect'})
     except requests.exceptions.MissingSchema:
-        return ('Error. Please Use Full URL (e.g "https://google.com")')
+        return jsonify({'error': 'Missing http://'})
     except:
-        return ('Unknown error has occurred')
+        return jsonify({'error': 'unknown'})
