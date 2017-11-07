@@ -26,8 +26,8 @@ def test_links(url):
                 jsonData.append(keyPair)
         return jsonData
     except requests.ConnectionError:
-        return jsonify({'error': 'Unable to connect'})
+        return jsonify({'error': 'unable to connect'})
     except requests.exceptions.MissingSchema:
-        return jsonify({'error': 'Missing http://'})
+        return jsonify({'error': 'missing http://'})
     except:
         return jsonify({'error': 'unknown'})
