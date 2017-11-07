@@ -3,8 +3,8 @@ from bs4 import BeautifulSoup
 from flask import jsonify
 import requests, sys
 
-def checkProtocol(site): #Validate argument starts with http or https
-    return site.startswith('http://') or site.startswith('https://')
+def checkProtocol(url): #Validate argument starts with http or https
+    return url.startswith('http://') or url.startswith('https://')
 
 def createJson(response, link):
     data = {}
@@ -12,9 +12,9 @@ def createJson(response, link):
     data['url'] = link
     return data
 
-def test_links(site):
+def test_links(url):
     try:
-        r  = requests.get(site)
+        r  = requests.get(url)
         soup = BeautifulSoup(r.text, 'html.parser')
         jsonData=[]
         for link in soup.find_all('a'):
