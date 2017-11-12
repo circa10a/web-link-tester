@@ -11,12 +11,14 @@ Flask App to scrape and validate links via GUI or API
 
 ## Usage
 
-### Docker
+### Running/Hosting
+
+#### Docker
 
 ```bash
 docker run -d --name link-tester -p 80:80 circa10a/web-link-tester
 ```
-### Python
+#### Python
 
 ```bash
 python main.py 
@@ -30,7 +32,7 @@ Access via http://localhost
 ```bash
 curl -X POST --data "https://www.github.com" http://localhost/api
 ```
-### Stack
+#### Stack
 - Utilizes uwsgi/nginx for multiple workers/threading.
 - Python 3
 - BeautifulSoup4
