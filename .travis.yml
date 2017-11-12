@@ -14,4 +14,4 @@ script:
   - heroku plugins:install heroku-container-registry
   - docker login --username=_ --password="$api_token" registry.heroku.com
   - docker build -t registry.heroku.com/web-link-tester/web .
-  - docker pushregistry.heroku.com/web-link-tester/web
+  - docker push registry.heroku.com/web-link-tester/web
