@@ -8,13 +8,17 @@ before_install:
 - npm install -g npm
 - npm -v
 - npm install -g heroku-cli
-- docker build -t circa10a/web-link-tester .
-- docker run -d -p 80:80 circa10a/web-link-tester
+- docker build -t $docker_username/web-link-tester .
+- docker run -d -p 80:80 $docker_username/web-link-tester
 - sleep 5
 script:
 - curl -X POST --data "https://github.com" http://localhost/api
 after_script:
+- docker login --username=$docker_username --password=$docker_password
+- docker push $docker_username/web-link-tester
+- echo $do_key > do_key_file
 deploy:
  provider: script
  skip_cleanup: true
  script:
+   - ssh -i do_key_file -o StrictHostKeyChecking=no core@104.236.32.150 'docker rm -f web-link-tester && docker rmi -f $docker_username/web-link-tester && docker run --name web-link-tester -d -p 80:80 $docker_username/web-link-tester'
