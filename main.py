@@ -40,7 +40,7 @@ def internal_server_error(e):
 
 @app.errorhandler(503)
 def service_unavailable(e):
-    code = 503
+    code = '503'
     return render_template('error.html', code=code), 503
 
 if __name__ == '__main__':
