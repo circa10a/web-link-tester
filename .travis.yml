@@ -6,6 +6,7 @@ services:
 before_install:
 - openssl aes-256-cbc -K $encrypted_626d144bbea6_key -iv $encrypted_626d144bbea6_iv
   -in deploy.enc -out /tmp/deploy -d
+- chmod 600 /tmp/deploy
 - set -e
 - docker build -t $docker_username/web-link-tester .
 - docker run -d -p 80:80 $docker_username/web-link-tester
