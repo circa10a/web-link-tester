@@ -15,8 +15,8 @@ function submit() {
     }
     }).show();
     console.log('Form data length is ' + formVal);
+    return false
   } else {
-    loader()
-    $('#formsearch').submit();
+      $('#formsearch').submit();
+    }
   }
-}
