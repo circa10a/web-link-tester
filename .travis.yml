@@ -1,9 +1,19 @@
+language: python
 services:
 - docker
-
+before_install:
+- set -e
+- npm install -g npm
+- npm -v
+- npm install -g heroku-cli
+- docker build -t circa10a/web-link-tester .
+- docker run -d -p 80:80 circa10a/web-link-tester
+- sleep 5
 script:
-  - set -e
-  - docker build -t circa10a/web-link-tester .
-  - docker run -d -p 80:5000 circa10a/web-link-tester
-  - sleep 5
-  - curl http://localhost
+- curl -X POST --data "https://github.com" http://localhost/api
+after_script:
+- docker rm -f app
+deploy:
+ provider: script
+ skip_cleanup: true
+ script:
