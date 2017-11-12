@@ -13,7 +13,7 @@ def index_post():
         url = request.form['search']
         data = validate.test_links(url)
         if isinstance(data, list):
-            keys = ['URL','Code']
+            keys = ['Code','URL']
             return render_template('index.html', data=data, keys=keys)
         else:
             return render_template('index.html', invalid_data=data)
