@@ -1,7 +1,3 @@
-language: node_js
-node_js:
-  - "8"
-  
 services:
 - docker
 
@@ -10,8 +6,4 @@ script:
   - docker build -t circa10a/web-link-tester .
   - docker run -d -p 80:5000 circa10a/web-link-tester
   - sleep 5
-  - npm install -g heroku-cli
-  - heroku plugins:install heroku-container-registry
-  - docker login --username=_ --password="$api_token" registry.heroku.com
-  - docker build -t registry.heroku.com/web-link-tester/web .
-  - docker push registry.heroku.com/web-link-tester/web
+  - curl http://localhost
