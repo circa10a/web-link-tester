@@ -30,15 +30,18 @@ def api():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+    code = '404'
+    return render_template('error.html', code=code), 404
 
 @app.errorhandler(500)
 def internal_server_error(e):
-    return render_template('500.html'), 500
+    code = '500'
+    return render_template('error.html', code=code), 500
 
 @app.errorhandler(503)
 def service_unavailable(e):
-    return render_template('503.html'), 503
+    code = '503'
+    return render_template('error.html', code=code), 503
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',port=80)
