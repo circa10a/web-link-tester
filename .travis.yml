@@ -1,4 +1,6 @@
 language: python
+node_js:
+  - 'lts/*'
 services:
 - docker
 before_install:
@@ -12,7 +14,6 @@ before_install:
 script:
 - curl -X POST --data "https://github.com" http://localhost/api
 after_script:
-- docker rm -f app
 deploy:
  provider: script
  skip_cleanup: true
