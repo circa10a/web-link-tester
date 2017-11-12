@@ -17,6 +17,7 @@ after_script:
 - docker push $docker_username/web-link-tester
 deploy:
   provider: script
+  skip_cleanup: true
   on:
     branch: dev
   script:
