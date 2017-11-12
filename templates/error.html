@@ -64,7 +64,7 @@
          display: block;
          height: 0;
          visibility: hidden;
-     } 
+     }
      .clearfix:after {
          clear: both;
      }
@@ -217,24 +217,23 @@
   <body class="plain error-page-wrapper background-color background-image">
     <div class="content-container">
 	<div class="head-line secondary-text-color">
-		503
+		{{ code }}
 	</div>
 	<div class="subheader primary-text-color">
-		Looks like we're having <br>
-		some server issues.
+		Oops, the page you're <br>
+		looking for does not exist.
 	</div>
-    <hr>
-    <div class="clearfix"></div>
-    <div class="context primary-text-color">
-      
+	<hr>
+	<div class="clearfix"></div>
+	<div class="context primary-text-color">
+		<!-- doesn't use context_content because it's ALWAYS the same thing -->
     <p>
-      Go back to the previous page and try again.
+      You may want to head back to the homepage.<br />
       If you think something is broken, report a problem.
     </p>
-
-
-    </div>
+	</div>
 	<div class="buttons-container">
+		<a class="border-button" href="http://scrapeyour.site" target="_blank">Go To Homepage</a>
 		<a class="border-button" href="mailto:#" target="_blank">Report A Problem</a>
 	</div>
 </div>
@@ -320,7 +319,7 @@
 
      ErrorPage.prototype.fetchStatus = function (pageUrl, pageType) {
        //console.log('in app.js fetch');
-       if (!pageUrl || !pageType || pageType == '404') return;
+       if (!pageUrl || !pageType || pageType == '{{ code }}') return;
 
        var url = ''
          , self = this;
@@ -344,7 +343,7 @@
        });
 
      };
-     var ep = new ErrorPage('body', "503", "plain");
+     var ep = new ErrorPage('body', "{{ code }}", "plain");
      ep.initialize();
 
      // hack to make sure content stays centered >_<
@@ -354,6 +353,6 @@
 
     </script>
 
-    
+
   </body>
 </html>
