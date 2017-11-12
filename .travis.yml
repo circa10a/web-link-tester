@@ -22,4 +22,4 @@ before_deploy:
   - echo -e "Host scrapeyour.site\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 deploy:
   provider: script
-  script: ssh -i /tmp/deploy core@scrapeyour.site 'docker rm -f web-link-tester && docker rmi -f $docker_username/web-link-tester && docker run --name web-link-tester -d -p 80:80 $docker_username/web-link-tester'
+  script: ssh -i /tmp/deploy core@scrapeyour.site 'docker rm -f web-link-tester && docker pull $docker_username/web-link-tester && docker run --name web-link-tester -d -p 80:80 $docker_username/web-link-tester'
