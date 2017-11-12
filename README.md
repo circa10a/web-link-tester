@@ -67,7 +67,8 @@ curl -X POST --data "https://www.github.com" http://localhost/api
       "url": "http://scrapeyour.site"
     }
   ]
-}```
+}
+```
 
 ### Bonus CLI utility
 Can be found in my [python-fun](https://github.com/circa10a/python-fun) repo.
