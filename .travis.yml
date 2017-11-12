@@ -12,6 +12,6 @@ script:
   - sleep 5
   - npm install -g heroku-cli
   - heroku plugins:install heroku-container-registry
-  - docker login --username=_ --password=$api_token registry.heroku.com
+  - docker login --username=_ --password="$api_token" registry.heroku.com
   - docker build -t registry.heroku.com/web-link-tester/web .
   - docker pushregistry.heroku.com/web-link-tester/web
