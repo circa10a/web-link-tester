@@ -17,7 +17,8 @@ before_script:
 script:
 - curl -X POST --data "https://github.com" http://localhost/api
 before_deploy:
-  - sleep 120
+  # wait for docker hub to build
+  - sleep 600
   - echo -e "Host scrapeyour.site\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 deploy:
   provider: script
