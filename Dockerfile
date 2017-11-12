@@ -1,5 +1,5 @@
 FROM tiangolo/uwsgi-nginx-flask:python3.6
 
 COPY . /app
-RUN bash /app/install_deps.sh
+RUN pip install -r /app/requirements.txt
 EXPOSE 5000

@@ -1,32 +1,33 @@
 #!/usr/bin/env python
 from bs4 import BeautifulSoup
+from flask import jsonify
 import requests, sys
 
-def check_protocol(site): #Validate argument starts with http or https
-    return site.startswith('http://') or site.startswith('https://')
+def checkProtocol(url): #Validate argument starts with http or https
+    return url.startswith('http://') or url.startswith('https://')
 
-def create_json(response, link):
+def createJson(response, link):
     data = {}
     data['code'] = response
     data['url'] = link
     return data
 
-def test_links(site):
+def test_links(url):
     try:
-        r  = requests.get(site)
+        r  = requests.get(url)
         soup = BeautifulSoup(r.text, 'html.parser')
-        json_data=[]
+        jsonData=[]
         for link in soup.find_all('a'):
             link = str(link.get('href'))
             link = link.replace("'",'"')
-            if check_protocol(link):
+            if checkProtocol(link):
                 response = requests.get(link)
-                key_pair = create_json(response.status_code,link)
-                json_data.append(key_pair)
-        return json_data
+                keyPair = createJson(response.status_code,link)
+                jsonData.append(keyPair)
+        return jsonData
     except requests.ConnectionError:
-        return ('Unable to Connect')
+        return jsonify({'error': 'unable to connect'})
     except requests.exceptions.MissingSchema:
-        return ('Error. Please Use Full URL (e.g "https://google.com")')
+        return jsonify({'error': 'missing http://'})
     except:
-        return ('Unknown error has occurred')
+        return jsonify({'error': 'unknown'})
