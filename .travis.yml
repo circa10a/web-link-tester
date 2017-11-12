@@ -19,7 +19,6 @@ before_deploy:
   - echo -e "Host scrapeyour.site\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 deploy:
   provider: script
-  skip_cleanup: true
   on:
     branch: dev
   script:
