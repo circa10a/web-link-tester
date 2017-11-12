@@ -10,14 +10,21 @@ Flask App to scrape and validate links via GUI or API
 # [ScrapeYour.site](http://scrapeyour.site)
 
 ## Usage
+Why use the web-link-tester?
 
-### Running/Hosting
+1) Test your production site via GUI or programmatically to ensure no bad pages routes or forgotten references.
+2) It's free.
+
+### To deploy the Web App/API
 
 #### Docker
 
 ```bash
 docker run -d --name link-tester -p 80:80 circa10a/web-link-tester
 ```
+
+Access via http://localhost
+
 #### Python
 
 ```bash
@@ -32,6 +39,10 @@ Access via http://localhost
 ```bash
 curl -X POST --data "https://www.github.com" http://localhost/api
 ```
+
+### Bonus CLI utility
+Can be found in my [python-fun](https://github.com/circa10a/python-fun) repo.
+
 #### Stack
 - Utilizes uwsgi/nginx for multiple workers/threading.
 - Python 3
