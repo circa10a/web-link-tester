@@ -34,7 +34,7 @@ python main.py
 
 Access via http://localhost
 
-### API Usage
+#### API Usage
 
 ```bash
 curl -X POST --data "https://www.github.com" http://localhost/api
@@ -73,7 +73,7 @@ curl -X POST --data "https://www.github.com" http://localhost/api
 ### Bonus CLI utility
 Can be found in my [python-fun](https://github.com/circa10a/python-fun) repo.
 
-#### Stack
+### Stack
 - Utilizes uwsgi/nginx for multiple workers/threading.
 - Python 3
 - BeautifulSoup4
