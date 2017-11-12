@@ -40,6 +40,35 @@ Access via http://localhost
 curl -X POST --data "https://www.github.com" http://localhost/api
 ```
 
+#### Example JSON Output
+
+```bash
+~ curl -X POST --data "http://caleblemoine.me" http://scrapeyour.site/api
+{
+  "links": [
+    {
+      "code": 200,
+      "url": "https://github.com/circa10a/"
+    },
+    {
+      "code": 200,
+      "url": "https://hub.docker.com/r/circa10a/"
+    },
+    {
+      "code": 200,
+      "url": "https://circa10a.github.io/monitor/"
+    },
+    {
+      "code": 200,
+      "url": "https://circa10a.github.io/smart-mirror/"
+    },
+    {
+      "code": 200,
+      "url": "http://scrapeyour.site"
+    }
+  ]
+}```
+
 ### Bonus CLI utility
 Can be found in my [python-fun](https://github.com/circa10a/python-fun) repo.
 
