@@ -1,0 +1,9 @@
+services:
+- docker
+
+script:
+  - set -e
+  - docker build -t circa10a/web-link-tester .
+  - docker run -d -p 80:5000 circa10a/web-link-tester
+  - sleep 5
+  - curl http://localhost
