@@ -4,10 +4,9 @@ python:
 addons:
   ssh_known_hosts:
     - scrapeyour.site
-    - 104.236.32.150
 services:
 - docker
-before_install:
+before_script:
 - set -e
 - openssl aes-256-cbc -K $encrypted_626d144bbea6_key -iv $encrypted_626d144bbea6_iv
   -in deploy.enc -out /tmp/deploy -d
@@ -17,16 +16,11 @@ before_install:
 - sleep 5
 script:
 - curl -X POST --data "https://github.com" http://localhost/api
-after_script:
-- docker login --username=$docker_username --password=$docker_password
-- docker push $docker_username/web-link-tester
 before_deploy:
+  - sleep 120
   - echo -e "Host scrapeyour.site\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 deploy:
   provider: script
-  skip_cleanup: true
   on:
     branch: dev
-  script:
-  - scp -i /tmp/deploy deploy.sh 104.236.32.150:~/
-  - ssh -i /tmp/deploy core@104.236.32.150 'bash ~/deploy.sh'
+  script: ssh -i /tmp/deploy core@scrapeyour.site 'docker rm -f web-link-tester && docker rmi -f $docker_username/web-link-tester && docker run --name web-link-tester -d -p 80:80 $docker_username/web-link-tester'
