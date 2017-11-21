@@ -16,8 +16,9 @@ Why use the web-link-tester?
 2) It's free.
 
 ### To deploy the Web App/API
+---
 
-#### Docker
+### Docker
 
 ```bash
 docker run -d --name link-tester -p 80:80 circa10a/web-link-tester
@@ -25,7 +26,7 @@ docker run -d --name link-tester -p 80:80 circa10a/web-link-tester
 
 Access via http://localhost
 
-#### Python
+### Python
 
 ```bash
 python main.py 
@@ -34,13 +35,13 @@ python main.py
 
 Access via http://localhost
 
-#### API Usage
+### API Usage
 
 ```bash
 curl -X POST --data "https://www.github.com" http://localhost/api
 ```
 
-#### Example JSON Output
+### Example JSON Output
 
 ```bash
 ~ curl -X POST --data "http://caleblemoine.me" http://scrapeyour.site/api
