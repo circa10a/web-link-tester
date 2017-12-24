@@ -1,7 +1,7 @@
 import json,pytest
-from lib.link_test import checkProtocol
-from lib.link_test import createJson
-from lib.link_test import linkCheck
+from lib.link_test import *
+# from lib.link_test import createJson
+# from lib.link_test import linkCheck
 def test_checkProtocol():
     assert checkProtocol("github.com") == False
     assert checkProtocol("http:/github.com") == False

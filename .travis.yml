@@ -16,7 +16,7 @@ before_script:
 - docker run -d -p 80:80 $docker_username/web-link-tester
 - sleep 5
 script:
-- pytest -v --ignore=lib
+- pytest -v --cov=lib --cov=tests
 - curl -X POST --data "https://github.com" http://localhost/api
 # before_deploy:
 #   # wait for docker hub to build
