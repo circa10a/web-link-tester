@@ -2,3 +2,4 @@ bs4
 requests
 flask
 pytest
+pytest-cov
