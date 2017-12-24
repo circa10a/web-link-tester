@@ -7,6 +7,7 @@ addons:
 services:
 - docker
 before_script:
+- pip install -r requirements.txt
 - set -e
 - openssl aes-256-cbc -K $encrypted_626d144bbea6_key -iv $encrypted_626d144bbea6_iv
   -in deploy.enc -out /tmp/deploy -d
@@ -15,11 +16,12 @@ before_script:
 - docker run -d -p 80:80 $docker_username/web-link-tester
 - sleep 5
 script:
+- pytest -v --cov=lib --cov=tests
 - curl -X POST --data "https://github.com" http://localhost/api
-before_deploy:
-  # wait for docker hub to build
-  - sleep 500
-  - echo -e "Host scrapeyour.site\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-deploy:
-  provider: script
-  script: ssh -i /tmp/deploy core@scrapeyour.site 'docker rm -f web-link-tester && docker pull $docker_username/web-link-tester && docker run --name web-link-tester -d -p 80:80 --restart always $docker_username/web-link-tester'
+# before_deploy:
+#   # wait for docker hub to build
+#   - sleep 500
+#   - echo -e "Host scrapeyour.site\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+# deploy:
+#   provider: script
+#   script: ssh -i /tmp/deploy core@scrapeyour.site 'docker rm -f web-link-tester && docker rmi -f $docker_username/web-link-tester && docker run --name web-link-tester -d -p 80:80 $docker_username/web-link-tester'
