@@ -18,10 +18,10 @@ before_script:
 script:
 - pytest -v --ignore=lib
 - curl -X POST --data "https://github.com" http://localhost/api
-before_deploy:
-  # wait for docker hub to build
-  - sleep 500
-  - echo -e "Host scrapeyour.site\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-deploy:
-  provider: script
-  script: ssh -i /tmp/deploy core@scrapeyour.site 'docker rm -f web-link-tester && docker rmi -f $docker_username/web-link-tester && docker run --name web-link-tester -d -p 80:80 $docker_username/web-link-tester'
+# before_deploy:
+#   # wait for docker hub to build
+#   - sleep 500
+#   - echo -e "Host scrapeyour.site\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+# deploy:
+#   provider: script
+#   script: ssh -i /tmp/deploy core@scrapeyour.site 'docker rm -f web-link-tester && docker rmi -f $docker_username/web-link-tester && docker run --name web-link-tester -d -p 80:80 $docker_username/web-link-tester'
