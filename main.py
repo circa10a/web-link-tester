@@ -1,6 +1,6 @@
 #!flask/bin/python
 from flask import Flask,request,render_template,jsonify
-import lib.link_test as validate
+import lib.linkCheck as validate
 
 app = Flask(__name__)
 

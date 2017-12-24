@@ -12,7 +12,7 @@ def createJson(response, link):
     data['url'] = link
     return data
 
-def test_links(url):
+def linkCheck(url):
     try:
         r  = requests.get(url)
         soup = BeautifulSoup(r.text, 'html.parser')
