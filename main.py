@@ -11,7 +11,7 @@ def index():
 @app.route('/', methods=['POST'])
 def index_post():
         url = request.form['search']
-        data = validate.test_links(url)
+        data = validate.linkCheck(url)
         if isinstance(data, list):
             keys = ['Code','URL']
             return render_template('index.html', data=data, keys=keys)
@@ -22,7 +22,7 @@ def index_post():
 def api():
     if request.method !='POST':
         return 'Only POST allowed.'
-    data = validate.test_links(request.get_data())
+    data = validate.linkCheck(request.get_data())
     if isinstance(data, list):
         return jsonify({'links': data})
     else:
