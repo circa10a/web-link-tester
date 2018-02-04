@@ -7,15 +7,13 @@
 
 Flask App to scrape and validate links via GUI or API
 
-# [ScrapeYour.site](http://scrapeyour.site)
-
 ## Usage
 Why use the web-link-tester?
 
 1) Test your production site via GUI or programmatically to ensure no bad page routes or forgotten references.
 2) It's free.
 
-### To deploy the Web App/API
+## To deploy the Web App/API
 ---
 
 ### Docker
