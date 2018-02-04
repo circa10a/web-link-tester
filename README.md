@@ -77,3 +77,8 @@ Can be found in my [python-fun](https://github.com/circa10a/python-fun) repo.
 - Python 3
 - BeautifulSoup4
 - Jquery
+
+### Screenshots
+
+![alt text](https://i.imgur.com/cwC8HcK.png)
+![alt text](https://i.imgur.com/9l6OHDX.png)
