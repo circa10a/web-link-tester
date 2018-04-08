@@ -42,7 +42,7 @@ curl -X POST --data "https://www.github.com" http://localhost/api
 ### Example JSON Output
 
 ```bash
-~ curl -X POST --data "http://caleblemoine.me" http://scrapeyour.site/api
+$ curl -X POST --data "http://caleblemoine.me" http://localhost/api
 {
   "links": [
     {
