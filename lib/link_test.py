@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 from bs4 import BeautifulSoup
 from flask import jsonify
 import requests, sys

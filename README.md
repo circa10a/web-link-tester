@@ -27,7 +27,7 @@ Access via http://localhost
 ### Python
 
 ```bash
-python main.py 
+python main.py
 ```
 **Note** This method may require to run as root unless you change the port number in `main.py`
 
@@ -73,7 +73,7 @@ $ curl -X POST --data "http://caleblemoine.me" http://localhost/api
 Can be found in my [python-fun](https://github.com/circa10a/python-fun) repo.
 
 ### Stack
-- Utilizes uwsgi/nginx for multiple workers/threading.
+- Utilizes gunicorn for multiple workers/threading.
 - Python 3
 - BeautifulSoup4
 - Jquery

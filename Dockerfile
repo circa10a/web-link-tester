@@ -1,3 +1,5 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7
+FROM python:alpine3.7
 COPY . /app
-RUN pip install -r /app/requirements.txt
+WORKDIR /app
+RUN pip install -r requirements.txt
+CMD gunicorn -w $(nproc --all) -b :80 main:app
