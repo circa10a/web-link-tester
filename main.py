@@ -48,4 +48,4 @@ if __name__ == '__main__':
     if sys.version_info[0] < 3 and sys.version_info[1] < 2:
         print('Requires minimum Python 3.2')
         quit()
-    app.run(host='0.0.0.0',port=8080)
+    app.run(host='0.0.0.0',port=80)
