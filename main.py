@@ -1,6 +1,7 @@
 #!flask/bin/python
 from flask import Flask,request,render_template,jsonify
 import lib.link_test as validate
+import sys
 
 app = Flask(__name__)
 
@@ -44,4 +45,7 @@ def service_unavailable(e):
     return render_template('error.html', code=code), 503
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=80)
+    if sys.version_info[0] < 3 and sys.version_info[1] < 2:
+        print('Requires minimum Python 3.2')
+        quit()
+    app.run(host='0.0.0.0',port=8080)
