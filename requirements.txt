@@ -1,6 +1,6 @@
 bs4
 requests
-requests-future
+requests-futures
 flask
 pytest
 pytest-cov
