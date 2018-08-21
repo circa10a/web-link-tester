@@ -3,7 +3,7 @@ from flask import jsonify
 from requests_futures.sessions import FuturesSession
 import requests, sys, os
 
-num_workers = os.cpu_count()
+num_workers = os.cpu_count() * 2
 session = FuturesSession(max_workers=num_workers)
 
 def checkProtocol(url): #Validate argument starts with http or https
