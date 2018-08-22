@@ -7,13 +7,6 @@ def test_checkProtocol():
     assert checkProtocol("https://github.com") == True
     assert checkProtocol("https:/github.com") == False
 
-def test_createJson():
-    assert json.dumps(createJson(200,"https://github.com"))
-
-@pytest.mark.xfail(raises=TypeError)
-def test_createJson_fail():
-    assert json.dumps(createJson(200))
-
 def test_linkCheck():
     assert linkCheck("https://www.github.com")
 
