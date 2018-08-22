@@ -6,14 +6,9 @@ import requests, sys, os
 num_workers = os.cpu_count() * 2
 session = FuturesSession(max_workers=num_workers)
 
-def checkProtocol(url): #Validate argument starts with http or https
+def checkProtocol(url):
+    # Validate argument starts with http or https
     return url.startswith('http://') or url.startswith('https://')
-
-def createJson(response, link):
-    data = {}
-    data['code'] = response
-    data['url'] = link
-    return data
 
 def linkCheck(url):
     try:
@@ -29,9 +24,10 @@ def linkCheck(url):
                 urls.append(link)
                 futures.append(session.get(urls.pop(0)))
         for future in futures:
+            # Wait for results
             response = future.result()
-            keyPair = createJson(response.status_code, response.url)
-            jsonData.append(keyPair)
+            # Append keypairs
+            jsonData.append({'code': response.status_code, 'url': response.url})
         return jsonData
     except requests.ConnectionError:
         return jsonify({'error': 'unable to connect'})
