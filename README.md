@@ -69,9 +69,6 @@ $ curl -X POST --data "http://caleblemoine.me" http://localhost/api
 }
 ```
 
-### Bonus CLI utility
-Can be found in my [python-fun](https://github.com/circa10a/python-fun) repo.
-
 ### Stack
 - Utilizes gunicorn for multiple workers/threading.
 - Python 3
