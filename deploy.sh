@@ -21,10 +21,7 @@ docker build -t "${NAMESPACE}:latest" . && \
 docker push "${NAMESPACE}:latest" && \
 # Versioned x64
 docker tag "${NAMESPACE}:latest" "${NAMESPACE}:${VERSION}" && \
-docker push "${NAMESPACE}:${VERSION}" && \
-# x64 Arch
-docker tag "${NAMESPACE}:latest" "${NAMESPACE}:latest-amd64" && \
-docker push "${NAMESPACE}:latest-amd64"
+docker push "${NAMESPACE}:${VERSION}"
 
 # prepare qemu for ARM builds
 docker run --rm --privileged multiarch/qemu-user-static:register --reset
