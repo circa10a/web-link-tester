@@ -21,7 +21,10 @@ docker build -t "${NAMESPACE}:latest" . && \
 docker push "${NAMESPACE}:latest" && \
 # Versioned x64
 docker tag "${NAMESPACE}:latest" "${NAMESPACE}:${VERSION}" && \
-docker push "${NAMESPACE}:${VERSION}"
+docker push "${NAMESPACE}:${VERSION}" && \
+# x64 Arch
+docker tag "${NAMESPACE}:latest" "${NAMESPACE}:latest-amd64" && \
+docker push "${NAMESPACE}:latest-amd64"
 
 # prepare qemu for ARM builds
 docker run --rm --privileged multiarch/qemu-user-static:register --reset
@@ -39,4 +42,4 @@ done
 
 wget -O manifest-tool https://github.com/estesp/manifest-tool/releases/download/v0.9.0/manifest-tool-linux-amd64 && \
 chmod +x manifest-tool && \
-./manifest-tool --username "$USER" --password "$docker_password" from-spec "${USER}-${PROJECT}.yaml"
+./manifest-tool --username "$USER" --password "$docker_password" push from-spec "${USER}-${PROJECT}.yaml"
