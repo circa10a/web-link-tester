@@ -2,6 +2,6 @@ bs4
 requests
 requests-futures
 flask
-pytest
+pytest==3.7
 pytest-cov
 gunicorn
