@@ -42,4 +42,4 @@ done
 
 wget -O manifest-tool https://github.com/estesp/manifest-tool/releases/download/v0.9.0/manifest-tool-linux-amd64 && \
 chmod +x manifest-tool && \
-manifest push from-spec "${USER}-${PROJECT}.yaml"
+./manifest-tool push from-spec "${USER}-${PROJECT}.yaml"
