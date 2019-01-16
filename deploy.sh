@@ -35,7 +35,7 @@ for i in $(ls *.rpi); do
 done
 
 # Support multiple architectures with same image
-docker manifest create "${USER}/${PROJECT}:latest ${USER}/${PROJECT}:latest-arm32v7-rpi" "${USER}/${PROJECT}:latest-arm64v8-rpi"
-docker manifest annotate "${USER}/${PROJECT}:latest ${USER}/${PROJECT}:latest-arm32v7-rpi --os linux --arch armv7"
-docker manifest annotate "${USER}/${PROJECT}:latest ${USER}/${PROJECT}:latest-arm64v8-rpi --os linux --arch arm64 --variant armv8"
+docker manifest create "${NAMESPACE}:latest" "${NAMESPACE}:latest-arm32v7-rpi" "${NAMESPACE}:latest-arm64v8-rpi"
+docker manifest annotate "${NAMESPACE}:latest" "${NAMESPACE}:latest-arm32v7-rpi" --os linux --arch arm
+docker manifest annotate "${NAMESPACE}:latest" "${NAMESPACE}:latest-arm64v8-rpi" --os linux --arch arm64 --variant armv8
 docker manifest push "${NAMESPACE}:latest"
