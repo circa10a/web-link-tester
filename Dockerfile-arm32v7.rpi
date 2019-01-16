@@ -1,4 +1,4 @@
-FROM resin/raspberry-pi-alpine-python:3.7
+FROM balenalib/raspberry-pi-alpine-python:3.7
 WORKDIR /usr/src/app
 COPY . .
 RUN pip install --no-cache-dir -r ./requirements.txt
