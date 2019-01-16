@@ -16,12 +16,15 @@ sudo service docker restart
 # Auth
 echo $docker_password | docker login -u="$USER" --password-stdin
 
-# Latest x86
+# Latest x64
 docker build -t "${NAMESPACE}:latest" . && \
 docker push "${NAMESPACE}:latest" && \
-# Versioned x86
+# Versioned x64
 docker tag "${NAMESPACE}:latest" "${NAMESPACE}:${VERSION}" && \
-docker push "${NAMESPACE}:${VERSION}"
+docker push "${NAMESPACE}:${VERSION}" && \
+# x64 Arch
+docker tag "${NAMESPACE}:latest" "${NAMESPACE}:latest-amd64" && \
+docker push "${NAMESPACE}:latest-amd64"
 
 # prepare qemu for ARM builds
 docker run --rm --privileged multiarch/qemu-user-static:register --reset
@@ -37,8 +40,6 @@ for i in $(ls *.rpi); do
   docker push "${NAMESPACE}:${VERSION}-${arch}-rpi"
 done
 
-# Support multiple architectures with same image
-docker manifest create "${NAMESPACE}:latest" "${NAMESPACE}:latest-arm32v7-rpi" "${NAMESPACE}:latest-arm64v8-rpi"
-docker manifest annotate "${NAMESPACE}:latest" "${NAMESPACE}:latest-arm32v7-rpi" --os linux --arch arm --variant v7
-docker manifest annotate "${NAMESPACE}:latest" "${NAMESPACE}:latest-arm64v8-rpi" --os linux --arch arm64 --variant v8
-docker manifest push "${NAMESPACE}:latest"
+wget -O manifest-tool https://github.com/estesp/manifest-tool/releases/download/v0.9.0/manifest-tool-linux-amd64 && \
+chmod +x manifest-tool && \
+manifest push from-spec "${USER}-${PROJECT}".yaml
