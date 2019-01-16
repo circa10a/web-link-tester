@@ -1,6 +1,11 @@
 image: circa10a/web-link-tester:latest
 manifests:
   -
+    image: circa10a/web-link-tester:latest-amd64
+    platform:
+      architecture: amd64
+      os: linux
+  -
     image: circa10a/web-link-tester:latest-arm32v7-rpi
     platform:
       architecture: arm
