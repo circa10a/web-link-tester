@@ -6,16 +6,6 @@ USER='circa10a'
 PROJECT='web-link-tester'
 NAMESPACE="${USER}/${PROJECT}"
 
-# # Docker experimental config
-# echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
-# [ -d ~/.docker ] || mkdir ~/.docker
-# [ -f ~/.docker/config.json ] || touch ~/.docker/config.json
-# echo '{"experimental":"enabled"}' | sudo tee ~/.docker/config.json
-# sudo service docker restart
-
-# # Auth
-# echo $docker_password | docker login -u="$USER" --password-stdin
-
 # Latest x86
 docker build -t "${NAMESPACE}:latest" . && \
 docker push "${NAMESPACE}:latest" && \

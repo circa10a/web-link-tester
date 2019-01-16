@@ -1,6 +1,5 @@
-FROM arm64v8/python:3.7.2-slim
+FROM balenalib/raspberry-pi-alpine-python:3.7
 WORKDIR /usr/src/app
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r ./requirements.txt
 COPY . .
+RUN pip install --no-cache-dir -r ./requirements.txt
 CMD gunicorn -w $(nproc --all) -b :80 main:app
