@@ -1,8 +1,14 @@
+sudo: true
 language: python
 python:
   - 3.6
 services:
   - docker
+addons:
+  apt:
+    packages:
+      - docker-ce
+
 before_script:
   - pip install -r requirements.txt
   - set -e
@@ -12,3 +18,9 @@ before_script:
 script:
   - pytest -v --cov=lib --cov=tests
   - curl -X POST --data "https://github.com" http://localhost/api
+
+deploy:
+  - provider: script
+    script: bash ./deploy.sh
+    on:
+      branch: master
