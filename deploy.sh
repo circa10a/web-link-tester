@@ -4,13 +4,15 @@ VERSION="1.0.0"
 # Docker
 USER='circa10a'
 PROJECT='web-link-tester'
-NAMESPACE=${USER}/${PROJECT}
+NAMESPACE="${USER}/${PROJECT}"
+
 # Docker experimental config
 echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
 [ -d ~/.docker ] || mkdir ~/.docker
 [ -f ~/.docker/config.json ] || touch ~/.docker/config.json
 echo '{"experimental":"enabled"}' | sudo tee ~/.docker/config.json
 sudo service docker restart
+
 # Auth
 echo $docker_password | docker login -u="$USER" --password-stdin
 
@@ -24,6 +26,7 @@ docker push "${NAMESPACE}:${VERSION}"
 # prepare qemu for ARM builds
 docker run --rm --privileged multiarch/qemu-user-static:register --reset
 
+# ARM images
 for i in $(ls *.rpi); do
   arch="$(echo ${i} | cut -d- -f2 | cut -d. -f1)"
   # Latest
