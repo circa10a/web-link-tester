@@ -39,6 +39,6 @@ done
 
 # Support multiple architectures with same image
 docker manifest create "${NAMESPACE}:latest" "${NAMESPACE}:latest-arm32v7-rpi" "${NAMESPACE}:latest-arm64v8-rpi"
-docker manifest annotate "${NAMESPACE}:latest" "${NAMESPACE}:latest-arm32v7-rpi" --os linux --arch arm
-docker manifest annotate "${NAMESPACE}:latest" "${NAMESPACE}:latest-arm64v8-rpi" --os linux --arch arm64 --variant armv8
+docker manifest annotate "${NAMESPACE}:latest" "${NAMESPACE}:latest-arm32v7-rpi" --os linux --arch arm --variant v7
+docker manifest annotate "${NAMESPACE}:latest" "${NAMESPACE}:latest-arm64v8-rpi" --os linux --arch arm64 --variant v8
 docker manifest push "${NAMESPACE}:latest"
