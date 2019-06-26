@@ -19,7 +19,7 @@ def index_post():
         else:
             return render_template('index.html', invalid_data=data)
 
-@app.route('/api',methods = ['GET','POST'])
+@app.route('/api', methods = ['GET','POST'])
 def api():
     if request.method !='POST':
         return 'Only POST allowed.'
@@ -48,4 +48,4 @@ if __name__ == '__main__':
     if sys.version_info[0] < 3 and sys.version_info[1] < 2:
         print('Requires minimum Python 3.2')
         quit()
-    app.run(host='0.0.0.0',port=80)
+    app.run(host='0.0.0.0', port=80)
