@@ -5,7 +5,7 @@
 [![](https://images.microbadger.com/badges/image/circa10a/web-link-tester.svg)](https://microbadger.com/images/circa10a/web-link-tester "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/circa10a/web-link-tester.svg)](https://microbadger.com/images/circa10a/web-link-tester "Get your own version badge on microbadger.com")
 
-Asyncronous Flask App to scrape and validate links via GUI or REST API
+Asynchronous Flask App to scrape and validate links via GUI or REST API
 
 ## Usage
 Why use the web-link-tester?
