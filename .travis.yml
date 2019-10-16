@@ -17,7 +17,7 @@ before_script:
   - sleep 5
 script:
   - pytest -v --cov=lib --cov=tests --disable-pytest-warnings
-  - curl -X POST --data '{"url": "https://github.com"}'x http://localhost:8080/api
+  - "curl -X POST --data '{\"url\": \"https://github.com\"}' http://localhost:8080/api"
 
 deploy:
   - provider: script
