@@ -13,10 +13,6 @@ Why use the web-link-tester?
 1) Test your production site via GUI or programmatically to ensure no bad page routes or forgotten references.
 2) It's free.
 
-### Listening port
-
-Set environment variable `PORT` locally or in docker container to change listening port from `8080`
-
 ## To deploy the Web App/API
 ---
 
@@ -35,6 +31,8 @@ python main.py
 ```
 
 Access via http://localhost:8080
+
+> Set environment variable `PORT` locally to change listening port from `8080`
 
 ### API Usage
 

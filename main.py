@@ -34,7 +34,7 @@ def api():
     try:
         validate.validate_json(json)
     except:
-        return jsonify({ "error": "Data is not in key \"url\"" })
+        return jsonify({ "error": "Data is not in url key" })
 
     # check all links
     data = validate.linkCheck(json['url'])
