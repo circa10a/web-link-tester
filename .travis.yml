@@ -13,11 +13,11 @@ before_script:
   - pip install -r requirements.txt
   - set -e
   - docker build -t $docker_username/web-link-tester .
-  - docker run -d -p 80:80 $docker_username/web-link-tester
+  - docker run -d -p 8080:8080 $docker_username/web-link-tester
   - sleep 5
 script:
   - pytest -v --cov=lib --cov=tests --disable-pytest-warnings
-  - curl -X POST --data "https://github.com" http://localhost/api
+  - curl -X POST --data '{"url": "https://github.com"}'x http://localhost:8080/api
 
 deploy:
   - provider: script
