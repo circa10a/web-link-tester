@@ -15,7 +15,7 @@
   <script type="text/javascript" src="static/js/noty/noty.min.js"></script>
   <a href="https://github.com/circa10a/web-link-tester"><img style="position: absolute; top: 0; right: 0; border: 0;" src="static/img/forkMe.png" alt="Fork me on GitHub"></a>
   <div class="search">
-  <form id="formsearch" onsubmit="return validateURL()" name="formsearch" action="." method="post">
+  <form enctype='application/json' id="formsearch" onsubmit="return validateURL()" name="url" action="." method="post">
   <input id="textbox" type="url" class="search-box" name="search" autofocus type="submit"/>
   </form>
   <span class="search-button">

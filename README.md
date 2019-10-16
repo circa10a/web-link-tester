@@ -13,58 +13,94 @@ Why use the web-link-tester?
 1) Test your production site via GUI or programmatically to ensure no bad page routes or forgotten references.
 2) It's free.
 
+### Listening port
+
+Set environment variable `PORT` locally or in docker container to change listening port from `8080`
+
 ## To deploy the Web App/API
 ---
 
 ### Docker
 
 ```bash
-docker run -d --name link-tester -p 80:80 circa10a/web-link-tester
+docker run -d --name link-tester -p 8080:8080 circa10a/web-link-tester
 ```
 
-Access via http://localhost
+Access via http://localhost:8080
 
 ### Python
 
 ```bash
 python main.py
 ```
-**Note** This method may require to run as root unless you change the port number in `main.py`
 
-Access via http://localhost
+Access via http://localhost:8080
 
 ### API Usage
 
 ```bash
-curl -X POST --data "https://www.github.com" http://localhost/api
+curl -X POST --data '{"url": "https://www.github.com"}' http://localhost:8080/api
 ```
 
 ### Example JSON Output
 
 ```bash
-$ curl -X POST --data "http://caleblemoine.me" http://localhost/api
+$ curl -s -X POST -H "content-type: application/json" --data '{"url": "https://caleblemoine.dev"}' http://localhost:8080/api
+
 {
   "links": [
     {
-      "code": 200,
-      "url": "https://github.com/circa10a/"
+      "code": 999,
+      "url": "https://www.linkedin.com/in/caleblemoine/"
     },
     {
       "code": 200,
-      "url": "https://hub.docker.com/r/circa10a/"
+      "url": "https://github.com/circa10a"
     },
     {
       "code": 200,
-      "url": "https://circa10a.github.io/monitor/"
+      "url": "https://github.com/circa10a/express-jwt"
     },
     {
       "code": 200,
-      "url": "https://circa10a.github.io/smart-mirror/"
+      "url": "https://github.com/pyouroboros/ouroboros"
     },
     {
       "code": 200,
-      "url": "http://scrapeyour.site"
-    }
+      "url": "https://github.com/circa10a/filter-object-array"
+    },
+    {
+      "code": 200,
+      "url": "https://github.com/circa10a/easy-soap-request"
+    },
+    {
+      "code": 200,
+      "url": "https://medium.com/better-programming/how-to-perform-soap-requests-with-node-js-4a9627070eb6"
+    },
+    {
+      "code": 200,
+      "url": "https://github.com/circa10a/web-link-tester"
+    },
+    {
+      "code": 200,
+      "url": "https://github.com/circa10a/Device-Monitor-Dashboard"
+    },
+    {
+      "code": 200,
+      "url": "https://caleblemoine.dev/monitor/"
+    },
+    {
+      "code": 200,
+      "url": "https://hub.docker.com/u/circa10a"
+    },
+    {
+      "code": 200,
+      "url": "https://caleblemoine.dev/gitfolio/"
+    },
+    {
+      "code": 999,
+      "url": "https://www.linkedin.com/in/caleblemoine/"
+    },
   ]
 }
 ```

@@ -14,9 +14,9 @@ function submit() {
       easing: 'swing',
     }
     }).show();
-    console.log('Form data length is ' + formVal);
+    console.log(`Form data length is ${formVal}`);
     return false
   } else {
-      $('#formsearch').submit();
+      $('#url').submit();
     }
   }
