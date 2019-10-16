@@ -37,7 +37,7 @@ Access via http://localhost:8080
 ### API Usage
 
 ```bash
-curl -X POST --data '{"url": "https://www.github.com"}' http://localhost:8080/api
+curl -X POST -H "content-type: application/json" --data '{"url": "https://www.github.com"}' http://localhost:8080/api
 ```
 
 ### Example JSON Output
