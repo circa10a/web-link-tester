@@ -1,6 +1,5 @@
 # web-link-tester
 
-[![Docker Repository on Quay](https://quay.io/repository/circa10a/web-link-tester/status "Docker Repository on Quay")](https://quay.io/repository/circa10a/web-link-tester)
 ![Docker Automated build](https://img.shields.io/docker/automated/jrottenberg/ffmpeg.svg)
 [![](https://images.microbadger.com/badges/image/circa10a/web-link-tester.svg)](https://microbadger.com/images/circa10a/web-link-tester "Get your own image badge on microbadger.com")
 [![](https://images.microbadger.com/badges/version/circa10a/web-link-tester.svg)](https://microbadger.com/images/circa10a/web-link-tester "Get your own version badge on microbadger.com")
