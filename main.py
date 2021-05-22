@@ -1,4 +1,4 @@
-#!flask/bin/python
+#!/usr/bin/env python3
 from flask import Flask, request, render_template, jsonify
 from os import environ
 import lib.link_test as validate
@@ -15,7 +15,7 @@ def index():
 @app.route('/', methods=['POST'])
 def index_post():
     url = request.form['search']
-    data = validate.linkCheck(url)
+    data = validate.link_check(url)
     if isinstance(data, list):
         keys = ['Code', 'URL']
         return render_template('index.html', data=data, keys=keys)

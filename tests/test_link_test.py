@@ -3,25 +3,25 @@ import pytest
 from lib.link_test import *
 
 
-def test_checkProtocol():
-    assert checkProtocol("github.com") == False
-    assert checkProtocol("http:/github.com") == False
-    assert checkProtocol("https://github.com") == True
-    assert checkProtocol("https:/github.com") == False
+def test_valid_protocol():
+    assert valid_protocol("github.com") == False
+    assert valid_protocol("http:/github.com") == False
+    assert valid_protocol("https://github.com") == True
+    assert valid_protocol("https:/github.com") == False
 
 
-def test_linkCheck():
-    assert linkCheck("https://www.github.com")
+def test_link_check():
+    assert link_check("https://www.github.com")
 
 
 def test_linkCheck_fail():
     with pytest.raises(Exception):
-        assert linkCheck("ThisDoesNotExist")
-        assert linkCheck("http://ThisDoesNotExist.com")
-        assert linkCheck("https://ThisDoesNotExist.com")
-        assert linkCheck("http://www.ThisDoesNotExist.com")
-        assert linkCheck("https://www.ThisDoesNotExist.com")
-        assert linkCheck("https:/www.github.com")
+        assert link_check("ThisDoesNotExist")
+        assert link_check("http://ThisDoesNotExist.com")
+        assert link_check("https://ThisDoesNotExist.com")
+        assert link_check("http://www.ThisDoesNotExist.com")
+        assert link_check("https://www.ThisDoesNotExist.com")
+        assert link_check("https:/www.github.com")
 
 
 def test_validate_json():

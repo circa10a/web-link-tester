@@ -9,12 +9,12 @@ num_workers = os.cpu_count() * 2
 session = FuturesSession(max_workers=num_workers)
 
 
-def checkProtocol(url):
+def valid_protocol(url):
     # Validate argument starts with http or https
     return url.startswith('http://') or url.startswith('https://')
 
 
-def linkCheck(url):
+def link_check(url):
     try:
         r = requests.get(url)
         soup = BeautifulSoup(r.text, 'html.parser')
@@ -24,7 +24,7 @@ def linkCheck(url):
         for link in soup.find_all('a'):
             link = str(link.get('href'))
             link = link.replace("'", '"')
-            if checkProtocol(link):
+            if valid_protocol(link):
                 urls.append(link)
                 futures.append(session.get(urls.pop(0)))
         for future in futures:
